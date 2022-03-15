@@ -22,6 +22,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButtonGuardarValores_clicked()
 {
     try {
+        numero1 = new minhaNamespace::NumeroComplexo();
+        numero2 = new minhaNamespace::NumeroComplexo();
+
         numero1->setNumeroComplexo(ui->lineEditNumero1ParteReal->text().toInt(),
                                    ui->lineEditNumero1ParteImaginaria->text().toInt());
 
