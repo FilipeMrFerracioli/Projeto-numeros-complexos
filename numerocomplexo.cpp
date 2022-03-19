@@ -79,4 +79,3 @@ bool NumeroComplexo::operator != (NumeroComplexo &numero){
 }
 
 }
-

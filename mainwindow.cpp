@@ -4,8 +4,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    //, numero1(0)
-    //, numero2(0)
+    , numero1(new minhaNamespace::NumeroComplexo)
+    , numero2(new minhaNamespace::NumeroComplexo)
 {
     ui->setupUi(this);
     ui->pushButtonLimparValores->setEnabled(false);
@@ -26,10 +26,10 @@ void MainWindow::on_pushButtonGuardarValores_clicked()
         //numero2 = new minhaNamespace::NumeroComplexo();
 
         numero1->setNumeroComplexoUI(ui->lineEditNumero1ParteReal->text().toInt(),
-                                   ui->lineEditNumero1ParteImaginaria->text().toInt());
+                                     ui->lineEditNumero1ParteImaginaria->text().toInt());
 
         numero2->setNumeroComplexoUI(ui->lineEditNumero2ParteReal->text().toInt(),
-                                   ui->lineEditNumero2ParteImaginaria->text().toInt());
+                                     ui->lineEditNumero2ParteImaginaria->text().toInt());
 
         ui->lineEditNumero1ParteReal->setEnabled(false);
         ui->lineEditNumero1ParteImaginaria->setEnabled(false);
@@ -55,6 +55,7 @@ void MainWindow::on_pushButtonLimparValores_clicked()
         ui->lineEditNumero2ParteReal->clear();
         ui->lineEditNumero2ParteImaginaria->setEnabled(true);
         ui->lineEditNumero2ParteImaginaria->clear();
+        ui->lineEditResultado->clear();
 
         ui->pushButtonGuardarValores->setEnabled(true);
 
@@ -135,4 +136,3 @@ void MainWindow::on_pushButtonDiferente_clicked()
         QMessageBox::information(this, "Erro", erro);
     }
 }
-
