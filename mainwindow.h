@@ -37,7 +37,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    minhaNamespace::NumeroComplexo *numero1;
-    minhaNamespace::NumeroComplexo *numero2;
+    //minhaNamespace::NumeroComplexo *numero1;
+    //minhaNamespace::NumeroComplexo *numero2;
+    minhaNamespace::NumeroComplexo *numero1 = new minhaNamespace::NumeroComplexo();
+    minhaNamespace::NumeroComplexo *numero2 = new minhaNamespace::NumeroComplexo();
 };
 #endif // MAINWINDOW_H

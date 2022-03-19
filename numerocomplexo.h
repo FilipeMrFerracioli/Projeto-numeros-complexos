@@ -14,6 +14,7 @@ public:
     ~NumeroComplexo();
 
     void setNumeroComplexo(int parteReal, int parteImaginaria);
+    void setNumeroComplexoUI(int parteReal, int parteImaginaria);
     QString getNumeroComplexo() const;
 
     NumeroComplexo operator + (NumeroComplexo &numero);

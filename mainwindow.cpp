@@ -4,8 +4,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , numero1(0)
-    , numero2(0)
+    //, numero1(0)
+    //, numero2(0)
 {
     ui->setupUi(this);
     ui->pushButtonLimparValores->setEnabled(false);
@@ -22,13 +22,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButtonGuardarValores_clicked()
 {
     try {
-        numero1 = new minhaNamespace::NumeroComplexo();
-        numero2 = new minhaNamespace::NumeroComplexo();
+        //numero1 = new minhaNamespace::NumeroComplexo();
+        //numero2 = new minhaNamespace::NumeroComplexo();
 
-        numero1->setNumeroComplexo(ui->lineEditNumero1ParteReal->text().toInt(),
+        numero1->setNumeroComplexoUI(ui->lineEditNumero1ParteReal->text().toInt(),
                                    ui->lineEditNumero1ParteImaginaria->text().toInt());
 
-        numero2->setNumeroComplexo(ui->lineEditNumero2ParteReal->text().toInt(),
+        numero2->setNumeroComplexoUI(ui->lineEditNumero2ParteReal->text().toInt(),
                                    ui->lineEditNumero2ParteImaginaria->text().toInt());
 
         ui->lineEditNumero1ParteReal->setEnabled(false);
@@ -79,30 +79,60 @@ void MainWindow::on_pushButtonSoma_clicked()
 // subtracao
 void MainWindow::on_pushButtonSubtracao_clicked()
 {
+    try {
+        minhaNamespace::NumeroComplexo subtracao = *numero1 - *numero2;
 
+        ui->lineEditResultado->setText(subtracao.getNumeroComplexo());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // multiplicacao
 void MainWindow::on_pushButtonMultiplicacao_clicked()
 {
+    try {
+        minhaNamespace::NumeroComplexo multiplicacao = *numero1 * *numero2;
 
+        ui->lineEditResultado->setText(multiplicacao.getNumeroComplexo());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // divisao
 void MainWindow::on_pushButtonDivisao_clicked()
 {
+    try {
+        minhaNamespace::NumeroComplexo divisao = *numero1 / *numero2;
 
+        ui->lineEditResultado->setText(divisao.getNumeroComplexo());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // igual
 void MainWindow::on_pushButtonIgual_clicked()
 {
+    try {
+        bool igual = *numero1 == *numero2;
 
+        ui->lineEditResultado->setText(QString::number(igual));
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // diferente
 void MainWindow::on_pushButtonDiferente_clicked()
 {
+    try {
+        bool diferente = *numero1 != *numero2;
 
+        ui->lineEditResultado->setText(QString::number(diferente));
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
